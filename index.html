@@ -29,7 +29,8 @@
     </header>
     <main class="container mx-auto px-8 lg:px-24 my-8 lg:my-24">
         <section class="text-center">
-            <input id="search-field" type="text" placeholder="Search your phone" class="input input-bordered md:w-3/5 mb-10" />  
+            <input id="search-field" type="text" placeholder="Search your phone"
+                class="input input-bordered md:w-3/5 mb-10" />
             <button onclick="handleSearch()" class="btn btn-primary md:px-8 ml-2">Search</button>
         </section>
         <!-- search result -->
@@ -46,6 +47,26 @@
                 <button onclick="handleShowAll()" class="btn btn-primary px-8 mt-5">Show All</button>
             </div>
         </section>
+
+        <!-- show details modal -->
+        <!-- Open the modal using ID.showModal() method -->
+        
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 id="show-detail-phone-name"  class="font-bold text-lg mb-2"></h3>
+               <div id="show-detail-container">
+
+               </div>
+               
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
     </main>
     <footer>
 
