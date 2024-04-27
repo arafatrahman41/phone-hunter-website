@@ -4,6 +4,7 @@ const loadPhone = async (searchText='12', isShowAll) => {
   );
   const data = await res.json();
   const phones = data.data;
+  // console.log(phones);
   displayPhones(phones, isShowAll);
 };
 
@@ -73,8 +74,9 @@ const showPhoneDetails = (phone) => {
     showDetailsContainer.innerHTML = `
       <img src="${phone.image}" alt=""> 
        <p><span>Strong:</span>${phone?.mainFeatures?.storage}</p>
-       <p><span>GPS:</span>${phone.others.GPS}</p>
+       <p><span>GPS:</span>${phone.others?.GPS || 'No GPS available'}</p>
     ` 
+    // <p><span>GPS:</span>${phone.others?.GPS ? phone.others.GPS : 'No GPS available'}</p>
 
     // show the modal 
     show_details_modal.showModal();
@@ -86,7 +88,7 @@ const handleSearch = (isShowAll) => {
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   // console.log(searchText);
-  searchField.value = "";
+  
   loadPhone(searchText, isShowAll);
 };
 
